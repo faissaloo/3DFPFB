@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<room>
+  <caption/>
+  <width>1280</width>
+  <height>702</height>
+  <hsnap>32</hsnap>
+  <vsnap>32</vsnap>
+  <isometric>0</isometric>
+  <speed>30</speed>
+  <persistent>0</persistent>
+  <colour>2960640</colour>
+  <showcolour>-1</showcolour>
+  <code>var i,current_dir,current_file,file_list,created_instance,dir_list; //Doing this because I use EnigmaGM and it doesn't like it if I don't do this&#13;
+globalvar current_dir,length;&#13;
+&#13;
+if parameter_count() &gt;=1&#13;
+{&#13;
+	global.current_dir=parameter_string(1)&#13;
+}&#13;
+else&#13;
+{&#13;
+	global.current_dir="/home/"&#13;
+}&#13;
+current_file=file_find_first(global.current_dir+"*",0)&#13;
+file_list=ds_list_create()&#13;
+created_instance=0&#13;
+i=0&#13;
+while current_file!=""&#13;
+{&#13;
+	&#13;
+	instance_create(0,32+((i)*64),obj_wall_cube)&#13;
+	instance_create(-32,((i)*64),obj_wall_cube)&#13;
+	instance_create(1280,((i)*64),obj_wall_cube)&#13;
+	instance_create(1280,((i)*64)-32,obj_wall_cube)&#13;
+	created_instance=instance_create(0,((i)*64),obj_file)&#13;
+	created_instance.fname=current_file//Should probably remove the full path, if it's there anyways&#13;
+	//ds_list_add(global.file_list,current_file)&#13;
+	current_file=file_find_next()&#13;
+	i+=1&#13;
+	global.length+=64&#13;
+	&#13;
+}&#13;
+&#13;
+current_file=file_find_first(global.current_dir+"*",fa_directory)&#13;
+dir_list=ds_list_create()&#13;
+created_instance=0&#13;
+//i=0&#13;
+while current_file!=""&#13;
+{&#13;
+	&#13;
+	instance_create(0,32+((i)*64),obj_wall_cube)&#13;
+	instance_create(-32,((i)*64),obj_wall_cube)&#13;
+	instance_create(1280,((i)*64),obj_wall_cube)&#13;
+	instance_create(1280,((i)*64)-32,obj_wall_cube)&#13;
+	created_instance=instance_create(0,((i)*64),obj_dir)&#13;
+	created_instance.fname=current_file&#13;
+	//ds_list_add(global.file_list,current_file)&#13;
+	current_file=file_find_next()&#13;
+	i+=1&#13;
+	global.length+=64&#13;
+}&#13;
+//instance_create(0,((i+1)*64),obj_wall_cube)&#13;
+&#13;
+for (i=0;i&lt;1280/32;i+=1)&#13;
+{&#13;
+	instance_create(i*32,global.length-32,obj_wall_cube)&#13;
+}</code>
+  <enableViews>-1</enableViews>
+  <clearViewBackground>-1</clearViewBackground>
+  <makerSettings>
+    <isSet>-1</isSet>
+    <w>1280</w>
+    <h>702</h>
+    <showGrid>-1</showGrid>
+    <showObjects>-1</showObjects>
+    <showTiles>-1</showTiles>
+    <showBackgrounds>-1</showBackgrounds>
+    <showForegrounds>-1</showForegrounds>
+    <showViews>0</showViews>
+    <deleteUnderlyingObj>-1</deleteUnderlyingObj>
+    <deleteUnderlyingTiles>-1</deleteUnderlyingTiles>
+    <page>0</page>
+    <xoffset>0</xoffset>
+    <yoffset>0</yoffset>
+  </makerSettings>
+  <backgrounds>
+    <background foreground="0" hspeed="0" htiled="-1" name="texture_wall1" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
+    <background foreground="0" hspeed="0" htiled="-1" name="" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
+    <background foreground="0" hspeed="0" htiled="-1" name="" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
+    <background foreground="0" hspeed="0" htiled="-1" name="" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
+    <background foreground="0" hspeed="0" htiled="-1" name="" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
+    <background foreground="0" hspeed="0" htiled="-1" name="" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
+    <background foreground="0" hspeed="0" htiled="-1" name="" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
+    <background foreground="0" hspeed="0" htiled="-1" name="" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
+  </backgrounds>
+  <views>
+    <view hborder="32" hport="480" hspeed="-1" hview="720" objName="&lt;undefined&gt;" vborder="32" visible="-1" vspeed="-1" wport="640" wview="1280" xport="0" xview="0" yport="0" yview="0"/>
+    <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
+    <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
+    <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
+    <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
+    <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
+    <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
+    <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
+  </views>
+  <instances>
+    <instance code="" colour="4294967295" locked="0" name="inst_100001" objName="obj_player" rotation="0.0" scaleX="1.0" scaleY="1.0" x="320" y="16"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100026" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="0" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100027" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="32" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100028" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="64" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100029" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="96" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100030" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="128" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100031" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="160" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100032" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="192" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100033" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="224" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100034" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="256" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100035" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="288" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100036" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="320" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100037" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="352" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100038" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="384" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100039" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="416" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100040" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="448" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100041" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="480" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100042" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="512" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100043" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="544" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100044" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="576" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100045" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="608" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100046" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="640" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100047" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="672" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100048" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="704" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100049" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="736" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100050" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="768" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100051" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="800" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100052" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="832" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100053" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="864" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100054" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="896" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100055" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="928" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100056" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="960" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100057" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="992" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100058" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1024" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100059" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1056" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100060" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1088" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100061" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1120" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100062" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1152" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100063" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1184" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100064" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1216" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100065" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1248" y="-32"/>
+  </instances>
+  <tiles/>
+  <PhysicsWorld>0</PhysicsWorld>
+  <PhysicsWorldTop>0</PhysicsWorldTop>
+  <PhysicsWorldLeft>0</PhysicsWorldLeft>
+  <PhysicsWorldRight>640</PhysicsWorldRight>
+  <PhysicsWorldBottom>480</PhysicsWorldBottom>
+  <PhysicsWorldGravityX>0.0</PhysicsWorldGravityX>
+  <PhysicsWorldGravityY>10.0</PhysicsWorldGravityY>
+  <PhysicsWorldPixToMeters>0.1</PhysicsWorldPixToMeters>
+</room>

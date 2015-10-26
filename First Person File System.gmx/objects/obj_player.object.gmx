@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<object>
+  <spriteName>spr_player</spriteName>
+  <solid>0</solid>
+  <visible>-1</visible>
+  <depth>100</depth>
+  <persistent>-1</persistent>
+  <maskName>&lt;undefined&gt;</maskName>
+  <parentName>&lt;undefined&gt;</parentName>
+  <events>
+    <event enumb="0" eventtype="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>nearest=0;&#13;
+file="";&#13;
+&#13;
+direction=180&#13;
+global.camx = x;&#13;
+global.camy = y;&#13;
+global.camsin = sin(direction*pi/180);&#13;
+global.camcos = cos(direction*pi/180);</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>friction = 0.1;&#13;
+&#13;
+// initialize 3D&#13;
+d3d_start();&#13;
+d3d_set_hidden(true);&#13;
+//d3d_set_lighting(true);&#13;
+d3d_set_culling(false);&#13;
+//d3d_light_define_point(1, x, y, 16, 300, c_yellow)&#13;
+//d3d_light_enable(1, true);&#13;
+//d3d_set_fog(true,c_black,200,300);&#13;
+// interpolate textures&#13;
+texture_set_interpolation(true);</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="2" eventtype="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>global.camx = x;&#13;
+global.camy = y;&#13;
+global.camsin = sin(direction*pi/180);&#13;
+global.camcos = cos(direction*pi/180);</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event ename="obj_dir" eventtype="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/*nearest=instance_nearest(x, y, obj_dir);&#13;
+if nearest.fname!=".."&#13;
+{&#13;
+	global.current_dir+=nearest.fname&#13;
+	room_restart()&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event ename="obj_file" eventtype="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//The following is experimental code that is not currently working&#13;
+/*&#13;
+nearest=instance_nearest(x, y, obj_file);&#13;
+file=nearest.fname&#13;
+execute_shell(file,"")&#13;
+room_restart()&#13;
+*/</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event ename="obj_wall_thick" eventtype="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>x = xprevious;&#13;
+y = yprevious;&#13;
+if (abs(hspeed) &gt;= abs(vspeed) &amp;&amp; not place_meeting(x+hspeed,y,obj_wall_thick)) &#13;
+  { x += hspeed; exit;}&#13;
+if (abs(vspeed) &gt;= abs(hspeed) &amp;&amp; not place_meeting(x,y+vspeed,obj_wall_thick)) &#13;
+  { y += vspeed; exit;}&#13;
+speed = 0;&#13;
+//&#13;
+/*&#13;
+nearest=instance_nearest(x, y, obj_dir);&#13;
+if nearest.fname!=".."&#13;
+{&#13;
+	global.current_dir+=nearest.fname&#13;
+	room_restart()//room_goto(rm_noinitneeded)&#13;
+}*/&#13;
+//execute_shell(file,"")</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event ename="obj_wall_basic" eventtype="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{&#13;
+  x = xprevious;&#13;
+  y = yprevious;&#13;
+  if (abs(hspeed) &gt;= abs(vspeed) &amp;&amp; not place_meeting(x+hspeed,y,obj_wall_basic)) &#13;
+    { x += hspeed; exit;}&#13;
+ if (abs(vspeed) &gt;= abs(hspeed) &amp;&amp; not place_meeting(x,y+vspeed,obj_wall_basic)) &#13;
+    { y += vspeed; exit;}&#13;
+  speed = 0;&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="90" eventtype="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{&#13;
+  var xn,yn;&#13;
+  xn = x - sin(direction*pi/180);&#13;
+  yn = y - cos(direction*pi/180);&#13;
+  if not place_meeting(xn,yn,obj_wall_basic)&#13;
+    { x = xn; y = yn; }&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="88" eventtype="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{&#13;
+  var xn,yn;&#13;
+  xn = x + sin(direction*pi/180);&#13;
+  yn = y + cos(direction*pi/180);&#13;
+  if not place_meeting(xn,yn,obj_wall_basic)&#13;
+    { x = xn; y = yn; }&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="40" eventtype="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{&#13;
+  var maxspeed;&#13;
+  if keyboard_check(vk_shift) maxspeed = 10 else maxspeed = 5;&#13;
+  if (speed &gt; -maxspeed) speed = max(-maxspeed,speed-0.4);&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="39" eventtype="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{&#13;
+  direction -= 3;&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="38" eventtype="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{&#13;
+  var maxspeed;&#13;
+  if keyboard_check(vk_shift) maxspeed = 10 else maxspeed = 5;&#13;
+  if (speed &lt; maxspeed ) speed = min(maxspeed ,speed+0.4);&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="37" eventtype="5">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>{&#13;
+  direction += 3;&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="0" eventtype="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>// set the projection &#13;
+d3d_set_projection(x,y,12, x+cos(direction*pi/180),y-sin(direction*pi/180),12, 0,0,1);&#13;
+// set color and transparency&#13;
+draw_set_alpha(1);&#13;
+draw_set_color(c_white);&#13;
+// draw floor and ceiling &#13;
+d3d_draw_floor(0,0,0,room_width,global.length,0,&#13;
+                 background_get_texture(texture_floor),32,32); //d3d_draw_floor(0,0,32,room_width,room_height,32,&#13;
+//d3d_draw_floor(0,0,32,room_width,room_height,32,&#13;
+//                 background_get_texture(texture_ceiling),24,24);</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
+  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObjectSensor>0</PhysicsObjectSensor>
+  <PhysicsObjectShape>0</PhysicsObjectShape>
+  <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
+  <PhysicsObjectRestitution>0.1</PhysicsObjectRestitution>
+  <PhysicsObjectGroup>0</PhysicsObjectGroup>
+  <PhysicsObjectLinearDamping>0.1</PhysicsObjectLinearDamping>
+  <PhysicsObjectAngularDamping>0.1</PhysicsObjectAngularDamping>
+  <PhysicsObjectFriction>0.2</PhysicsObjectFriction>
+  <PhysicsObjectAwake>-1</PhysicsObjectAwake>
+  <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
+  <PhysicsShapePoints/>
+</object>

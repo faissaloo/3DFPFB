@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<assets>
+  <Configs name="configs">
+    <Config>Configs\Default</Config>
+  </Configs>
+  <sprites name="sprites">
+    <sprite>sprites\spr_wall_cube</sprite>
+    <sprite>sprites\spr_wall1_hor</sprite>
+    <sprite>sprites\spr_wall2_hor</sprite>
+    <sprite>sprites\spr_wall3_hor</sprite>
+    <sprite>sprites\spr_wall4_hor</sprite>
+    <sprite>sprites\spr_wall5_hor</sprite>
+    <sprite>sprites\spr_wall6_hor</sprite>
+    <sprite>sprites\spr_wall1_vert</sprite>
+    <sprite>sprites\spr_wall2_vert</sprite>
+    <sprite>sprites\spr_wall3_vert</sprite>
+    <sprite>sprites\spr_wall4_vert</sprite>
+    <sprite>sprites\spr_wall5_vert</sprite>
+    <sprite>sprites\spr_wall6_vert</sprite>
+    <sprite>sprites\spr_player</sprite>
+    <sprite>sprites\spr_barrel</sprite>
+    <sprite>sprites\spr_barrel_exp</sprite>
+    <sprite>sprites\spr_plant1</sprite>
+    <sprite>sprites\spr_plant2</sprite>
+    <sprites name="textures">
+      <sprite>sprites\tex_barrel</sprite>
+      <sprite>sprites\tex_barrel_exp</sprite>
+      <sprite>sprites\tex_plant1</sprite>
+      <sprite>sprites\tex_plant2</sprite>
+    </sprites>
+    <sprite>sprites\sprite_shotgun</sprite>
+  </sprites>
+  <sounds name="sound">
+    <sound>sound\snd_shot</sound>
+    <sound>sound\snd_explosion</sound>
+  </sounds>
+  <backgrounds name="background">
+    <background>background\texture_wall1</background>
+    <background>background\texture_floor</background>
+    <background>background\texture_folder</background>
+    <background>background\texture_file</background>
+    <background>background\texture_ceiling</background>
+  </backgrounds>
+  <paths name="paths"/>
+  <scripts name="scripts"/>
+  <shaders name="shaders"/>
+  <fonts name="fonts">
+    <font>fonts\font_0</font>
+  </fonts>
+  <timelines name="timelines"/>
+  <objects name="objects">
+    <object>objects\obj_wall_basic</object>
+    <object>objects\obj_wall_thick</object>
+    <object>objects\obj_wall1_hor</object>
+    <object>objects\obj_wall_cube</object>
+    <object>objects\obj_file</object>
+    <object>objects\obj_dir</object>
+    <object>objects\obj_wall1_vert</object>
+    <object>objects\obj_player</object>
+    <object>objects\obj_plant1</object>
+    <object>objects\obj_plant2</object>
+    <object>objects\obj_barrel</object>
+    <object>objects\obj_barrel_exp</object>
+    <object>objects\obj_gun</object>
+  </objects>
+  <rooms name="rooms">
+    <room>rooms\rm_main</room>
+  </rooms>
+  <constants number="0"/>
+  <help>
+    <rtf>help.rtf</rtf>
+  </help>
+</assets>

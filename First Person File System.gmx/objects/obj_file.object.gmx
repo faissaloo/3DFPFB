@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<object>
+  <spriteName>spr_wall_cube</spriteName>
+  <solid>-1</solid>
+  <visible>-1</visible>
+  <depth>0</depth>
+  <persistent>0</persistent>
+  <maskName>&lt;undefined&gt;</maskName>
+  <parentName>obj_wall_thick</parentName>
+  <events>
+    <event enumb="0" eventtype="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>x1 = x+10;&#13;
+x2 = x+16;&#13;
+y1 = y+10;&#13;
+y2 = y+32-10;&#13;
+z1 = 10;&#13;
+z2 = 24;&#13;
+tex = background_get_texture(texture_file);&#13;
+fname=""&#13;
+shortened_fname=""&#13;
+alarm[0]=1</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="0" eventtype="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>for (i=1;i&lt;=string_length(fname);i+=1)&#13;
+{&#13;
+	if i mod 5=0&#13;
+	{&#13;
+		shortened_fname+="#"&#13;
+	}&#13;
+	shortened_fname+=string_char_at(fname,i)&#13;
+}</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="0" eventtype="8">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>d3d_transform_set_identity()&#13;
+&#13;
+d3d_transform_set_rotation_x(90)&#13;
+d3d_transform_set_rotation_z(90)&#13;
+d3d_transform_add_translation(x+32,y+32,z+0.1)&#13;
+draw_set_color(4210752)&#13;
+draw_rectangle(0,0,string_width(shortened_fname),string_height(shortened_fname),0)&#13;
+//draw_set_color(c_black)&#13;
+d3d_transform_set_identity()&#13;
+&#13;
+d3d_transform_set_identity()&#13;
+&#13;
+d3d_transform_set_rotation_x(90)&#13;
+d3d_transform_set_rotation_z(90)&#13;
+d3d_transform_add_translation(x+32,y+32,z+0.2)&#13;
+draw_set_color(c_white)&#13;
+draw_set_font(font_0)&#13;
+draw_text(0,0,shortened_fname)&#13;
+//draw_set_color(c_black)&#13;
+d3d_transform_set_identity()&#13;
+&#13;
+&#13;
+d3d_draw_block(x1,y1,z1,x2,y2,z2,tex,1,1);</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+  </events>
+  <PhysicsObject>0</PhysicsObject>
+  <PhysicsObjectSensor>0</PhysicsObjectSensor>
+  <PhysicsObjectShape>0</PhysicsObjectShape>
+  <PhysicsObjectDensity>0.5</PhysicsObjectDensity>
+  <PhysicsObjectRestitution>0.1</PhysicsObjectRestitution>
+  <PhysicsObjectGroup>0</PhysicsObjectGroup>
+  <PhysicsObjectLinearDamping>0.1</PhysicsObjectLinearDamping>
+  <PhysicsObjectAngularDamping>0.1</PhysicsObjectAngularDamping>
+  <PhysicsObjectFriction>0.2</PhysicsObjectFriction>
+  <PhysicsObjectAwake>-1</PhysicsObjectAwake>
+  <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
+  <PhysicsShapePoints/>
+</object>
