@@ -117,6 +117,15 @@ if distance_to_object(instanceNearest)&lt;2&#13;
 {&#13;
 	execute_shell("xdg-open "+instanceNearest.fname,"")//execute_shell(fname,"")&#13;
 	room_restart()&#13;
+}&#13;
+&#13;
+//Enter folder&#13;
+instanceNearest = instance_nearest(x,y,obj_dir)&#13;
+if distance_to_object(instanceNearest)&lt;2&#13;
+{&#13;
+	global.current_dir+=instanceNearest.fname+"/"&#13;
+	//global.current_dir="/home/faissaloo/"&#13;
+	room_restart()&#13;
 }</string>
           </argument>
         </arguments>

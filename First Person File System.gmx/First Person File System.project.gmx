@@ -64,6 +64,7 @@
     <object>objects\obj_gun</object>
   </objects>
   <rooms name="rooms">
+    <room>rooms\rm_init_default_dir</room>
     <room>rooms\rm_main</room>
   </rooms>
   <constants number="0"/>

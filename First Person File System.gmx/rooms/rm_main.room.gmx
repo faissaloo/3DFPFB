@@ -11,16 +11,10 @@
   <colour>2960640</colour>
   <showcolour>-1</showcolour>
   <code>var i,current_dir,current_file,file_list,created_instance,dir_list; //Doing this because I use EnigmaGM and it doesn't like it if I don't do this&#13;
-globalvar current_dir,length;&#13;
+globalvar length;&#13;
+global.length=0&#13;
 &#13;
-if parameter_count() &gt;=1&#13;
-{&#13;
-	global.current_dir=parameter_string(1)&#13;
-}&#13;
-else&#13;
-{&#13;
-	global.current_dir="/home/"&#13;
-}&#13;
+&#13;
 current_file=file_find_first(global.current_dir+"*",0)&#13;
 file_list=ds_list_create()&#13;
 created_instance=0&#13;
