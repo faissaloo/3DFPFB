@@ -34,7 +34,11 @@ z2 = 24;&#13;
 tex = background_get_texture(texture_file);&#13;
 fname=""&#13;
 shortened_fname=""&#13;
-alarm[0]=1</string>
+alarm[0]=1&#13;
+if string_char_at(fname,string_length(fname)-3)+string_char_at(fname,string_length(fname)-2)+string_char_at(fname,string_length(fname)-1)+string_char_at(fname,string_length(fname))=".png" or string_char_at(fname,string_length(fname)-3)+string_char_at(fname,string_length(fname)-2)+string_char_at(fname,string_length(fname)-1)+string_char_at(fname,string_length(fname))=".gif" or string_char_at(fname,string_length(fname)-3)+string_char_at(fname,string_length(fname)-2)+string_char_at(fname,string_length(fname)-1)+string_char_at(fname,string_length(fname))=".jpg"&#13;
+{&#13;
+	tex=background_get_texture(background_add(fname, false, false));&#13;
+}</string>
           </argument>
         </arguments>
       </action>
@@ -64,6 +68,28 @@ alarm[0]=1</string>
 	}&#13;
 	shortened_fname+=string_char_at(fname,i)&#13;
 }</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event ename="obj_player" eventtype="4">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string/>
           </argument>
         </arguments>
       </action>

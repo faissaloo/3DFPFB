@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>100</depth>
-  <persistent>-1</persistent>
+  <persistent>0</persistent>
   <maskName>&lt;undefined&gt;</maskName>
   <parentName>&lt;undefined&gt;</parentName>
   <events>
@@ -63,7 +63,9 @@ d3d_set_culling(false);&#13;
 //d3d_light_enable(1, true);&#13;
 //d3d_set_fog(true,c_black,200,300);&#13;
 // interpolate textures&#13;
-texture_set_interpolation(true);</string>
+texture_set_interpolation(true);&#13;
+//execute_shell("thunar","")&#13;
+instanceNearest=0;</string>
           </argument>
         </arguments>
       </action>
@@ -89,6 +91,33 @@ texture_set_interpolation(true);</string>
 global.camy = y;&#13;
 global.camsin = sin(direction*pi/180);&#13;
 global.camcos = cos(direction*pi/180);</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event enumb="0" eventtype="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <useapplyto>-1</useapplyto>
+        <isquestion>0</isquestion>
+        <exetype>2</exetype>
+        <functionname/>
+        <codestring/>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>instanceNearest = instance_nearest(x,y,obj_file)&#13;
+if distance_to_object(instanceNearest)&lt;2&#13;
+{&#13;
+	execute_shell("xdg-open "+instanceNearest.fname,"")//execute_shell(fname,"")&#13;
+	room_restart()&#13;
+}</string>
           </argument>
         </arguments>
       </action>
@@ -142,8 +171,7 @@ if nearest.fname!=".."&#13;
 nearest=instance_nearest(x, y, obj_file);&#13;
 file=nearest.fname&#13;
 execute_shell(file,"")&#13;
-room_restart()&#13;
-*/</string>
+room_restart()*/</string>
           </argument>
         </arguments>
       </action>
