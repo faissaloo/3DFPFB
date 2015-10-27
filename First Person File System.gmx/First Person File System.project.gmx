@@ -58,6 +58,7 @@
     <object>objects\obj_wall1_vert</object>
     <object>objects\obj_player</object>
     <object>objects\obj_plant1</object>
+    <object>objects\obj_drawing</object>
     <object>objects\obj_plant2</object>
     <object>objects\obj_barrel</object>
     <object>objects\obj_barrel_exp</object>

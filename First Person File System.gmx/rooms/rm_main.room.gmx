@@ -88,7 +88,7 @@ for (i=0;i&lt;1280/32;i+=1)&#13;
     <background foreground="0" hspeed="0" htiled="-1" name="" stretch="0" visible="0" vspeed="0" vtiled="-1" x="0" y="0"/>
   </backgrounds>
   <views>
-    <view hborder="32" hport="480" hspeed="-1" hview="720" objName="&lt;undefined&gt;" vborder="32" visible="-1" vspeed="-1" wport="640" wview="1280" xport="0" xview="0" yport="0" yview="0"/>
+    <view hborder="32" hport="720" hspeed="-1" hview="720" objName="&lt;undefined&gt;" vborder="32" visible="-1" vspeed="-1" wport="1280" wview="1280" xport="0" xview="0" yport="0" yview="0"/>
     <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
     <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
     <view hborder="32" hport="480" hspeed="-1" hview="480" objName="&lt;undefined&gt;" vborder="32" visible="0" vspeed="-1" wport="640" wview="640" xport="0" xview="0" yport="0" yview="0"/>
@@ -139,6 +139,7 @@ for (i=0;i&lt;1280/32;i+=1)&#13;
     <instance code="" colour="4294967295" locked="0" name="inst_100039" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1184" y="-32"/>
     <instance code="" colour="4294967295" locked="0" name="inst_100040" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1216" y="-32"/>
     <instance code="" colour="4294967295" locked="0" name="inst_100041" objName="obj_wall_cube" rotation="0.0" scaleX="1.0" scaleY="1.0" x="1248" y="-32"/>
+    <instance code="" colour="4294967295" locked="0" name="inst_100124" objName="obj_drawing" rotation="0.0" scaleX="1.0" scaleY="1.0" x="352" y="0"/>
   </instances>
   <tiles/>
   <PhysicsWorld>0</PhysicsWorld>
